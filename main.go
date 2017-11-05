@@ -18,11 +18,17 @@ func main() {
 	databaseNames, err := myutil.QueryDatabaseTableName(db, databaseName)
 
 	for index, tableName := range databaseNames {
-
 		println(index, tableName)
 	}
-}
 
+	tableStructures, err := myutil.QueryTableStructure("account")
+
+	if err != nil {
+		println("出 bug 了")
+	}
+	println("长度为: ", len(tableStructures))
+
+}
 
 func checkErr(err error)  {
 	if err != nil {

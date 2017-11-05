@@ -2,6 +2,8 @@ package myutil
 
 import (
 	"database/sql"
+	"springboot-hand-stand/allstruct"
+	"fmt"
 )
 /**
 	查询某个表的所有表结构
@@ -9,37 +11,23 @@ import (
 	param tableName 		表名
 	return tableStructure	表结构信息
  */
-func QueryTableStructure(db *sql.DB, tableName string) (tableStructure map[string]interface{}, err error) {
+func QueryTableStructure(tableName string) (tableStructures []allstruct.DataBaseStruct, err error) {
+	db, err := sql.Open("mysql", "root:root@tcp(localhost:3306)/marvel?charset=utf8")
 	defer db.Close()
+
 	sql := "SHOW FULL COLUMNS FROM " + tableName
+
+	tableStructure := new(allstruct.DataBaseStruct)
+	tableStructures = make([]allstruct.DataBaseStruct, 10)
+
 	stmt, err := db.Prepare(sql)
-	stmt.Query()
+	res, err := stmt.Query()
 
-	checkErr(err)
-	row, err := db.Query(sql)
-	checkErr(err)
-
-	for row.Next() {
-		var Field string
-		var Type string
-		var Collation interface{}
-		var Null interface{}
-		var Key interface{}
-		var Default interface{}
-		var Extra interface{}
-		var Privileges string
-		var Comment string
-		row.Scan(&Field, &Type, &Collation, &Null, &Key, &Default, &Extra, &Privileges, &Comment)
-
-		tableStructure["Field"] = Field
-		tableStructure["Type"] = Type
-		tableStructure["Collation"] = Collation
-		tableStructure["Null"] = Null
-		tableStructure["Key"] = Key
-		tableStructure["Default"] = Default
-		tableStructure["Extra"] = Extra
-		tableStructure["Privileges"] = Privileges
-		tableStructure["Comment"] = Comment
+	for res.Next() {
+		res.Scan(&tableStructure.Field, &tableStructure.Type, &tableStructure.Collation, &tableStructure.Null,
+				 &tableStructure.Key, &tableStructure.Default, &tableStructure.Extra, &tableStructure.Privileges, &tableStructure.Comment)
+		tableStructures = append(tableStructures, *tableStructure)
+		fmt.Println(tableStructure)
 	}
 	return
 }
@@ -71,6 +59,6 @@ func QueryDatabaseTableName(db *sql.DB, databaseName string) (databaseNames []st
 
 func checkErr(err error)  {
 	if err != nil {
-		println(err)
+		println("出 bug 了", err)
 	}
 }
