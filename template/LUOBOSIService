@@ -1,0 +1,39 @@
+package com.dfire.soa.consumer.fa.provider.service.impl.common;
+
+import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+/**
+ * LUOBOSIService
+ *
+ * @author 萝卜丝
+ * @since 
+ */
+public interface LUOBOSIService {
+
+    /**
+     * 创建一条账户余额
+     *
+     * @param accountId 账号Id
+     * @return LUOBOSIDO
+     */
+    boolean createLUOBOSI(String accountId);
+
+
+
+    /**
+     * 根据主键获取信息
+     *
+     * @param luobosiId id
+     * @return 查找之后的信息
+     */
+    LUOBOSIDO findLUOBOSI(String luobosiId);
+
+
+    /**
+     * 修改信息
+     *
+     * @param luobosiDO DO 类
+     * @return 影响的结果数
+     */
+    boolean updateLUOBOSI(LUOBOSIDO luobosiDO);
+
+}

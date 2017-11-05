@@ -1,0 +1,42 @@
+package com.dfire.soa.consumer.fa.dao.mapper;
+
+import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+/**
+ * LUOBOSIMapper
+ *
+ * @author 萝卜丝
+ */
+@Component
+public interface LUOBOSIMapper {
+
+
+    /**
+     * 根据主键获取信息
+     *
+     * @param luobosiId id
+     * @return 查找之后的余额信息
+     */
+    LUOBOSIDO getLUOBOSI(String luobosiId);
+
+    /**
+     * 插入 LUOBOSIDO
+     *
+     * @param luobosiDO DO 类
+     * @return 影响的结果数
+     */
+    int insert(LUOBOSIDO luobosiDO);
+
+    /**
+     * 修改信息
+     *
+     * @param luobosiDO DO 类
+     * @return 影响的结果数
+     */
+    int update(LUOBOSIDO luobosiDO);
+
+}

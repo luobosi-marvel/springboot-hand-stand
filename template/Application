@@ -1,0 +1,18 @@
+package com.dfire.soa.consumer.fa;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
+
+@SpringBootApplication
+@MapperScan("com.dfire.soa.consumer.fa")
+@ImportResource({"classpath:mapper/*.xml", "classpath:config/*.xml"})
+@ComponentScan(basePackages={"com.dfire"})
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}

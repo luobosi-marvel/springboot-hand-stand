@@ -1,0 +1,58 @@
+package com.dfire.soa.consumer.fa.provider.service.impl;
+
+import com.dfire.soa.consumer.fa.dao.LUOBOSIDAO;
+import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+import com.dfire.soa.consumer.fa.provider.service.impl.common.LUOBOSIService;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+
+
+
+
+/**
+ * LUOBOSIServiceImpl
+ *
+ * @author 萝卜丝
+ * @since
+ */
+@Service
+public class LUOBOSIServiceImpl implements LUOBOSIService {
+
+    @Resource
+    private LUOBOSIDAO luobosiDAO;
+
+    @Override
+    public LUOBOSIDO findLUOBOSI(String luobosiId) {
+        this.luobosiIdValidator(luobosiId);
+        return this.luobosiDAO.getLUOBOSI(luobosiId);
+    }
+
+    @Override
+    public boolean createLUOBOSI(LUOBOSIDO luobosiDO) {
+        this.luobosiDOValidator(luobosiDO);
+        return this.luobosiDAO.insert(luobosiDO) > 0;
+    }
+
+    @Override
+    public boolean updateLUOBOSI(LUOBOSIDO luobosiDO) {
+        this.luobosiDOValidator(luobosiDO);
+        return this.luobosiDAO.update(luobosiDO) > 0;
+    }
+
+    /*----------------------------------------------以下为封装的私有方法------------------------------------------------*/
+
+    private void luobosiIdValidator(String luobosiId) {
+        if (StringUtils.isBlank(luobosiId)) {
+            throw new BizException("Id不能为空 ！！！");
+        }
+    }
+
+    private void luobosiDOValidator(LUOBOSIDO luobosiDO) {
+        if (luobosiDO == null) {
+            throw new BizException("luobosiDO 实体不能为null ！！！");
+        }
+    }
+
+}

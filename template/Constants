@@ -1,0 +1,11 @@
+package com.dfire.soa.consumer.fa.constant;
+
+/**
+ * Constants
+ *
+ * @author 萝卜丝
+ * @since 
+ */
+public class Constants {
+
+}

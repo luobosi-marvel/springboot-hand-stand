@@ -1,0 +1,56 @@
+package com.dfire.soa.consumer.fa.dao;
+
+import com.dfire.soa.consumer.fa.dao.mapper.LUOBOSIMapper;
+import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+import com.twodfire.exception.BizException;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Repository;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * LUOBOSIDAO
+ *
+ * @author 萝卜丝
+ * @since 
+ */
+@Repository
+public class LUOBOSIDAO {
+
+    @Resource
+    private LUOBOSIMapper luobosiMapper;
+
+    /**
+     * 根据主键获取信息
+     *
+     * @param luobosiId id
+     * @return 查找之后的余额信息
+     */
+    public LUOBOSIDO getLUOBOSI(String luobosiId) {
+        return this.luobosiMapper.getLUOBOSI(luobosiId);
+    }
+
+    /**
+     * 修改信息
+     *
+     * @param luobosiDO DO 类
+     * @return 影响的结果数
+     */
+    public int update(LUOBOSIDO luobosiDO) {
+        return this.luobosiMapper.update(luobosiDO);
+    }
+
+    /**
+     * 插入 LUOBOSI
+     *
+     * @param luobosiDO DO
+     */
+    public int insert(LUOBOSIDO luobosiDO) {
+        if (null == luobosiDO) {
+            throw new BizException("LUOBOSI 不能为空");
+        }
+        return luobosiMapper.insert(luobosiDO);
+    }
+
+}
