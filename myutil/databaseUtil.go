@@ -1,8 +1,7 @@
-package util
+package myutil
 
 import (
 	"database/sql"
-	"springboot-hand-stand/allstruct"
 )
 /**
 	查询某个表的所有表结构
