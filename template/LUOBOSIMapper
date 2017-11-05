@@ -1,6 +1,6 @@
-package com.dfire.soa.consumer.fa.dao.mapper;
+package projectPackage.dao.mapper;
 
-import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+import projectPackage.domain.LUOBOSIDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 

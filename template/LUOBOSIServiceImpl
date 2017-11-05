@@ -1,8 +1,8 @@
-package com.dfire.soa.consumer.fa.provider.service.impl;
+package projectPackage.provider.service.impl;
 
-import com.dfire.soa.consumer.fa.dao.LUOBOSIDAO;
-import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
-import com.dfire.soa.consumer.fa.provider.service.impl.common.LUOBOSIService;
+import projectPackage.dao.LUOBOSIDAO;
+import projectPackage.domain.LUOBOSIDO;
+import projectPackage.provider.service.impl.common.LUOBOSIService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.dfire.soa.consumer.fa.dao;
+package projectPackage.dao;
 
-import com.dfire.soa.consumer.fa.dao.mapper.LUOBOSIMapper;
-import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+import projectPackage.dao.mapper.LUOBOSIMapper;
+import projectPackage.domain.LUOBOSIDO;
 import com.twodfire.exception.BizException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;

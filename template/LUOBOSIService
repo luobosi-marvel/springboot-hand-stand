@@ -1,6 +1,6 @@
-package com.dfire.soa.consumer.fa.provider.service.impl.common;
+package projectPackage.provider.service.impl.common;
 
-import com.dfire.soa.consumer.fa.domain.LUOBOSIDO;
+import projectPackage.domain.LUOBOSIDO;
 /**
  * LUOBOSIService
  *
